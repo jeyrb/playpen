@@ -33,6 +33,7 @@
 	self.name = newName;
 	self.type = newType;
 	self.food = newFood;
+	NSLog(@"Create a new place of name %@, type %@ and food %@",self.name,self.type,self.food);
 	return self;
 }
 @end

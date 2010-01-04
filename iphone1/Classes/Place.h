@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+typedef enum {open, closed, unknown, unrecommended} Status;
+
 @interface Place : NSObject {
 	NSString *name;
 	NSString *type;
@@ -20,12 +22,12 @@
 	NSString *email;
 	NSURL *website;
 	NSURL *image;
-	NSString *status;
+	Status status;
 	CLLocation *location;
 	NSString *postcode;
 	NSURL *theListReview;
 	NSURL *theHeraldReview;
-	NSMutableArray *otherReviews;		
+	NSMutableArray *otherReviews;
 }
 
 @property (nonatomic, copy) NSString *name;
@@ -39,12 +41,12 @@
 @property (nonatomic, copy) NSString *email;
 @property (nonatomic, copy) NSURL *website;
 @property (nonatomic, copy) NSURL *image;
-@property (nonatomic, copy) NSString *status;
+@property (nonatomic) Status status;
 @property (nonatomic, copy) CLLocation *location;
 @property (nonatomic, copy) NSString *postcode;
 @property (nonatomic, copy) NSURL *theListReview;
 @property (nonatomic, copy) NSURL *theHeraldReview;
-@property (nonatomic, copy) NSMutableArray *otherReviews;	
+@property (nonatomic, copy) NSMutableArray *otherReviews;
 
 - (id) initWithName: (NSString *) name type: (NSString *) type food: (NSString *) food;
 
