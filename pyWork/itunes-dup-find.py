@@ -46,6 +46,9 @@ def find_tracks():
             print "B: %s %s %s" % (d.track_b.id(), d.track_b.location(), d.track_b.database_ID())
 
 
+def main():
+    find_tracks()
+
 class JeyTunesTest(unittest.TestCase):
     def test_list(self):
         find_tracks()
