@@ -23,16 +23,24 @@ class HashCache:
             os.makedirs(HashCache.cachedir)
     def clean(self):
         if os.path.exists(HashCache.cachedir):
+            print "Cleaning %d entries from cache " % self.len()
             shutil.rmtree(HashCache.cachedir)
             os.makedirs(HashCache.cachedir)
             
-    def add(self,id,hash):
-        file = self.cachefile(id)
+    def __setitem__(self, key, value):
+        file = self._cachefile(key)
         f = open(file,'w')
-        f.write(hash)
+        f.write(value)
         f.close()
-    def get(self,id):
-        file = self.cachefile(id)
+    def __contains__(self,item):
+        file = self._cachefile(item)
+        if os.path.exists(file):
+            return True
+        else:
+            return False
+
+    def __getitem__(self,key):
+        file = self._cachefile(key)
         if os.path.exists(file):
             f = open(file,"r")
             hash = f.read()
@@ -40,31 +48,52 @@ class HashCache:
             return hash
         else:
             return None
-    def cachefile(self,id):
-        return os.path.join(HashCache.cachedir,str(id))
+    def __len__(self):
+        return len([name for name in os.listdir(HashCache.cachedir) if os.path.isfile(name)])
+
+    def _cachefile(self,id):
+        return os.path.join(HashCache.cachedir,id)
 
 class HashedPhoto:
     cache = HashCache()
-    def __init__(self, photo):
-        self.id = photo.id.get()
-        self.name = photo.name().get()
-        self.image_path = photo.image_path().get()
-        phash = HashedPhoto.cache.get(self.id)
-        if phash == None:
-            f = open(photo.image_path.get(), 'rb')
+    def __init__(self, album, photo):
+        self.id = photo.id()
+        self.album = album
+        self.key = str(self.id)
+        #self.name = photo.name()
+        #self.image_path = photo.image_path()
+        if self.key in HashedPhoto.cache:
+            phash = HashedPhoto.cache[self.key]
+            #print "Reusing cached hash for %d" % self.id
+        else:
+            print "Generating hash for %d" % self.id
+            f = open(self.image_path, 'rb')
             h = hashlib.sha1()
             h.update(f.read())
             phash = h.hexdigest()
             f.close()
-            HashedPhoto.cache.add(self.id,phash)
+            HashedPhoto.cache[self.key]=phash
         self.fingerprint = phash
 
-def find_dups():
+        @property
+        def name(self):
+            return self.album.photos[self.id].name()
+        @property
+        def image_path(self):
+            return self.album.photos[self.id].image_path()
+
+
+def find_dups(progressreporter):
+    progressreporter.Report("Connecting to iPhoto")
     iPhoto = app('iPhoto')
+    progressreporter.Report("Retrieving photo list from iPhoto")
     album = iPhoto.photo_library_album()
+    album_size = len(album.photos())
+    progressreporter.Report("Scanning %d photos supplied by iPhoto" % album_size)
+    progressreporter.Target(album_size)
     fingerprints = {}
     for p in album.photos():
-        hp = HashedPhoto(p)
+        hp = HashedPhoto(album,p)
         if hp.fingerprint in fingerprints:
             prior = fingerprints[hp.fingerprint]
             print "Duplicate photo A (%s) %s %s" % (prior.id, prior.name, prior.image_path)
@@ -72,7 +101,23 @@ def find_dups():
             yield(hp, prior)
         else:
             fingerprints[hp.fingerprint] = hp
+        progressreporter.Increment()
 
+class ProgressReporter():
+    def __init__(self):
+        self.count = 0
+        self.target = 0
+
+    def Report(self,progress):
+        print progress
+
+    def Increment(self):
+        self.count = self.count + 1
+        if self.count % 25:
+            print "%d of %d" % (self.count,self.target)
+
+    def Target(self,target):
+        self.target = target
 
 class DupBrowserFrame(wx.Frame):
     rowlimit=10
@@ -114,7 +159,7 @@ class DupBrowserFrame(wx.Frame):
 
     def OnClean(self,event):
         HashCache().clean()
-        self.SetStatusText("Cache cleaned")
+        self.Report("Cache cleaned")
 
     def OnAbout(self, event):
         dlg = wx.MessageDialog(self, "A utility to detect duplicate photos in iPhoto", "About iPhotoDupFind", wx.OK)
@@ -124,12 +169,16 @@ class DupBrowserFrame(wx.Frame):
     def OnExit(self, event):
         self.Close(True)
 
+    def Report(self,progress):
+        self.SetStatusText(progress)
+
     def OnScan(self, event):
-        self.SetStatusText("Starting scan of library ...")
-        self.control.AppendText("Scanning ...\n")
+        self.Report("Starting scan of library ...")
         row = 0
+        reporter = ProgressReporter()
+        setattr(reporter,'Report',self.Report)
         try:
-            for (dup, prior) in find_dups():
+            for (dup, prior) in find_dups(reporter):
                 if row > self.rowlimit:
                     self.grid.AppendRows(5)
                     self.rowlimit=self.rowlimit+5
@@ -139,21 +188,22 @@ class DupBrowserFrame(wx.Frame):
                 self.grid.SetCellValue(row,3,str(prior.id))
                 self.grid.SetCellValue(row,4,prior.name)
                 self.grid.SetCellValue(row,5,prior.image_path)
+                self.grid.Refresh()
                 row = row + 1
         except:
             self.control.AppendText("Scan aborted with error:\n")
-            map(self.control.AppendText,sys.exc_info())
-            self.SetStatusText("Library scan aborted")
-        self.SetStatusText("Scan completed")
+            self.control.AppendText("SysError %s" % sys.exc_info()[1])
+            self.Report("Library scan aborted")
+        self.Report("Scan completed")
 
 
 class DupBrowser():
     def __init__(self):
-        print ""
+        print "Starting up dup finder"
 
     def main(self):
         app = wx.App(False)
-        frame = DupBrowserFrame(None, "iPhoto Dup Browser")
+        frame = DupBrowserFrame(None, "iPhoto Dup Finder")
         app.MainLoop()
 
 
