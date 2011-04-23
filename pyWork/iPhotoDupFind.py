@@ -66,7 +66,7 @@ class HashedPhoto(object):
             phash = HashedPhoto.cache[self.key]
             #print "Reusing cached hash for %d" % self.id
         else:
-            print "Generating hash for %d" % self.id
+            #print "Generating hash for %d" % self.id
             f = open(self.image_path, 'rb')
             h = hashlib.sha1()
             h.update(f.read())
@@ -181,7 +181,7 @@ class DupBrowserFrame(wx.Frame):
         setattr(reporter,'Report',self.Report)
         try:
             for (dup, prior) in find_dups(reporter):
-                if row > self.rowlimit:
+                if row >= self.rowlimit:
                     self.grid.AppendRows(5)
                     self.rowlimit=self.rowlimit+5
                 self.grid.SetCellValue(row,0,str(dup.id))
