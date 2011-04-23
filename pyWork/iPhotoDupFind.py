@@ -16,7 +16,7 @@ import os.path
 
 __author__ = 'jey'
 
-class HashCache:
+class HashCache(object):
     cachedir='/tmp/iphotoduphashcache'
     def __init__(self):
         if not os.path.exists(HashCache.cachedir):
@@ -54,11 +54,11 @@ class HashCache:
     def _cachefile(self,id):
         return os.path.join(HashCache.cachedir,id)
 
-class HashedPhoto:
+class HashedPhoto(object):
     cache = HashCache()
     def __init__(self, album, photo):
         self.id = photo.id()
-        self.album = album
+        self._album = album
         self.key = str(self.id)
         #self.name = photo.name()
         #self.image_path = photo.image_path()
@@ -75,12 +75,12 @@ class HashedPhoto:
             HashedPhoto.cache[self.key]=phash
         self.fingerprint = phash
 
-        @property
-        def name(self):
-            return self.album.photos[self.id].name()
-        @property
-        def image_path(self):
-            return self.album.photos[self.id].image_path()
+    @property
+    def name(self):
+        return self._album.photos.ID(self.id).name()
+    @property
+    def image_path(self):
+        return self._album.photos.ID(self.id).image_path()
 
 
 def find_dups(progressreporter):
@@ -103,7 +103,7 @@ def find_dups(progressreporter):
             fingerprints[hp.fingerprint] = hp
         progressreporter.Increment()
 
-class ProgressReporter():
+class ProgressReporter(object):
     def __init__(self):
         self.count = 0
         self.target = 0
@@ -113,7 +113,7 @@ class ProgressReporter():
 
     def Increment(self):
         self.count = self.count + 1
-        if self.count % 25:
+        if self.count % 25 == 0:
             print "%d of %d" % (self.count,self.target)
 
     def Target(self,target):
@@ -128,6 +128,8 @@ class DupBrowserFrame(wx.Frame):
         self.grid = wx.grid.Grid(panel)
         self.grid.CreateGrid(self.rowlimit,6)
         self.grid.EnableEditing(False)
+        #self.grid.AutoSizeColumns(True)
+        self.grid.SetRowLabelSize(0)
         self.grid.SetColLabelValue(0,"Dup ID")
         self.grid.SetColLabelValue(1,"Dup Name")
         self.grid.SetColLabelValue(2,"Dup Path")
@@ -188,7 +190,7 @@ class DupBrowserFrame(wx.Frame):
                 self.grid.SetCellValue(row,3,str(prior.id))
                 self.grid.SetCellValue(row,4,prior.name)
                 self.grid.SetCellValue(row,5,prior.image_path)
-                self.grid.Refresh()
+                wx.Yield()
                 row = row + 1
         except:
             self.control.AppendText("Scan aborted with error:\n")
@@ -197,7 +199,7 @@ class DupBrowserFrame(wx.Frame):
         self.Report("Scan completed")
 
 
-class DupBrowser():
+class DupBrowser(object):
     def __init__(self):
         print "Starting up dup finder"
 
@@ -208,8 +210,15 @@ class DupBrowser():
 
 
 class JPhotoTest(unittest.TestCase):
-    def test_list(self):
-        find_dups()
+    def test_HashedPhoto(self):
+        iPhoto = app('iPhoto')
+        album = iPhoto.photo_library_album()
+        photo1 = album.photos[0]
+        x = HashedPhoto(album,photo1)
+        x.fingerprint
+        self.assertEquals(photo1.id(),x.id,"ID is correct")
+        self.assertEquals(photo1.name(),x.name,"Name is correct")
+        self.assertEquals(photo1.image_path(),x.image_path,"Image path is correct")
 
 if __name__ == "__main__":
     DupBrowser().main()
