@@ -3,7 +3,7 @@
 """Detect duplicate photos in an iPhoto library, using SHA1 hashes to determine equality
 """
 
-from appscript import app
+import appscript
 import os.path
 import unittest
 import hashlib
@@ -89,9 +89,9 @@ class HashedPhoto(object):
     def date(self):
         return self._album.photos.ID(self.ID).date()
 
-def find_dups(progressreporter):
+def find_dups(iPhoto,progressreporter):
     progressreporter.Report("Connecting to iPhoto")
-    iPhoto = app('iPhoto')
+
     progressreporter.Report("Retrieving photo list from iPhoto")
     album = iPhoto.photo_library_album()
     album_size = len(album.photos())
@@ -119,7 +119,7 @@ class ProgressReporter(object):
 
     def Increment(self):
         self.count = self.count + 1
-        if self.count % 25 == 0:
+        if self.count % 10 == 0:
             self.Report("Scanned %d of %d" % (self.count,self.target))
 
     def Target(self,target):
@@ -128,9 +128,10 @@ class ProgressReporter(object):
 class DupFinderFrame(wx.Frame):
     rowlimit=0
 
-    def __init__(self, parent, title):
+    def __init__(self, parent, title, iPhoto):
         wx.Frame.__init__(self, parent, title=title, size=(850, 300))
         panel = wx.Panel(self)
+        self._define_toolbar()
         self._define_grid(panel)
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(self.grid, 1, wx.EXPAND)
@@ -138,6 +139,23 @@ class DupFinderFrame(wx.Frame):
         self.CreateStatusBar()
         self._define_menu()
         self.Show(True)
+        self.iPhoto = iPhoto
+
+    def _define_toolbar(self):
+        TOOL_ID_SCAN = wx.NewId()
+        TOOL_ID_DELETE = wx.NewId()
+        TOOL_ID_EXIT = wx.NewId()
+        
+        tb = wx.ToolBar(self,-1)
+        self.SetToolBar(tb)
+        tb.AddLabelTool(TOOL_ID_SCAN,'Scan',wx.Bitmap('icons/scan.png'), wx.NullBitmap,wx.ITEM_NORMAL,'Scan iPhoto for duplicates')
+        self.Bind(wx.EVT_TOOL,self.OnScan,id=TOOL_ID_SCAN)
+        tb.AddLabelTool(TOOL_ID_DELETE,'Delete',wx.Bitmap('icons/delete.png'), wx.NullBitmap,wx.ITEM_NORMAL,'Delete selected duplicates')
+        tb.AddSeparator()
+        tb.AddLabelTool(TOOL_ID_EXIT,'Exit',wx.Bitmap('icons/exit.png'), wx.NullBitmap,wx.ITEM_NORMAL,'Exit the dup finder tool')
+        self.Bind(wx.EVT_TOOL,self.OnExit,id=TOOL_ID_EXIT)
+        tb.Realize()
+
 
     def _define_grid(self, panel):
         self.grid = wx.grid.Grid(panel)
@@ -173,7 +191,7 @@ class DupFinderFrame(wx.Frame):
         if not hasattr(self, "row_rightclick_goto_a"):
             self.row_rightclick_goto_a = wx.NewId()
             self.row_rightclick_goto_b = wx.NewId()
-
+        self.cicked_row = event.GetRow()
         menu = wx.Menu()
         self.Bind(wx.EVT_MENU, self.OnRightClickMenuItem, menu.Append(self.row_rightclick_goto_a,"Goto Photo A"))
         self.Bind(wx.EVT_MENU, self.OnRightClickMenuItem, menu.Append(self.row_rightclick_goto_b,"Goto Photo B"))
@@ -181,7 +199,16 @@ class DupFinderFrame(wx.Frame):
         menu.Destroy()
 
     def OnRightClickMenuItem(self,event):
-        print "MENU: ID %s " % (event.GetId(),)
+
+        if event.GetId() == self.row_rightclick_goto_a:
+            id_col = 0
+        else:
+            id_col = 3
+        id = self.grid.GetCellValue(self.cicked_row,id_col)
+        print "MENU: ID %s PHOTO %s" % (event.GetId(),id)
+        self.iPhoto.photo_library_album().photos.ID(int(id)).select()
+        self.iPhoto.reopen()
+
 
     def _define_menu(self):
         filemenu = wx.Menu()
@@ -224,10 +251,10 @@ class DupFinderFrame(wx.Frame):
         reporter = ProgressReporter()
         setattr(reporter,'Report',self.Report)
         try:
-            for (dup, prior) in find_dups(reporter):
+            for (dup, prior) in find_dups(self.iPhoto,reporter):
                 if row >= self.rowlimit:
-                    self.grid.AppendRows(5)
-                    self.rowlimit=self.rowlimit+5
+                    self.grid.AppendRows(1)
+                    self.rowlimit=self.rowlimit+1
                 self.grid.SetCellValue(row,0,str(dup.id))
                 self.grid.SetCellValue(row,1,dup.name)
                 self.grid.SetCellValue(row,2,dup.image_path)
@@ -247,7 +274,8 @@ class DupFinder(object):
 
     def main(self):
         app = wx.App(False)
-        frame = DupFinderFrame(None, "iPhoto Dup Finder")
+        iPhoto = appscript.app('iPhoto')
+        frame = DupFinderFrame(None, "iPhoto Dup Finder",iPhoto)
         app.MainLoop()
 
 
