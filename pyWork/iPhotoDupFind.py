@@ -60,14 +60,12 @@ class HashedPhoto(object):
         self.id = photo.id()
         self._album = album
         self.key = str(self.id)
-        #self.name = photo.name()
-        #self.image_path = photo.image_path()
         if self.key in HashedPhoto.cache:
             phash = HashedPhoto.cache[self.key]
             #print "Reusing cached hash for %d" % self.id
         else:
             #print "Generating hash for %d" % self.id
-            f = open(self.image_path, 'rb')
+            f = open(photo.image_path(), 'rb')
             h = hashlib.sha1()
             h.update(f.read())
             phash = h.hexdigest()
@@ -81,7 +79,15 @@ class HashedPhoto(object):
     @property
     def image_path(self):
         return self._album.photos.ID(self.id).image_path()
-
+    @property
+    def height(self):
+        return self._album.photos.ID(self.ID).height()
+    @property
+    def width(self):
+        return self._album.photos.ID(self.ID).width()
+    @property
+    def date(self):
+        return self._album.photos.ID(self.ID).date()
 
 def find_dups(progressreporter):
     progressreporter.Report("Connecting to iPhoto")
@@ -114,37 +120,70 @@ class ProgressReporter(object):
     def Increment(self):
         self.count = self.count + 1
         if self.count % 25 == 0:
-            print "%d of %d" % (self.count,self.target)
+            self.Report("Scanned %d of %d" % (self.count,self.target))
 
     def Target(self,target):
         self.target = target
 
-class DupBrowserFrame(wx.Frame):
-    rowlimit=10
+class DupFinderFrame(wx.Frame):
+    rowlimit=0
+
     def __init__(self, parent, title):
-        wx.Frame.__init__(self, parent, title=title, size=(700, 300))
+        wx.Frame.__init__(self, parent, title=title, size=(850, 300))
         panel = wx.Panel(self)
-        self.control = wx.TextCtrl(panel, style=wx.TE_MULTILINE)
-        self.grid = wx.grid.Grid(panel)
-        self.grid.CreateGrid(self.rowlimit,6)
-        self.grid.EnableEditing(False)
-        #self.grid.AutoSizeColumns(True)
-        self.grid.SetRowLabelSize(0)
-        self.grid.SetColLabelValue(0,"Dup ID")
-        self.grid.SetColLabelValue(1,"Dup Name")
-        self.grid.SetColLabelValue(2,"Dup Path")
-        self.grid.SetColLabelValue(3,"Prior ID")
-        self.grid.SetColLabelValue(4,"Prior Name")
-        self.grid.SetColLabelValue(5,"Prior Path")
+        self._define_grid(panel)
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(self.grid, 1, wx.EXPAND)
-        sizer.Add(self.control,2,wx.EXPAND)
         panel.SetSizer(sizer)
         self.CreateStatusBar()
-        self.DefineMenu()
+        self._define_menu()
         self.Show(True)
 
-    def DefineMenu(self):
+    def _define_grid(self, panel):
+        self.grid = wx.grid.Grid(panel)
+        self.grid.CreateGrid(self.rowlimit, 6)
+        self.grid.EnableEditing(False)
+        #self.grid.AutoSizeColumns(True)
+        dup_colour = wx.Colour(255,239,213)
+        prior_colour = wx.Colour(238,210,238)
+        self.grid.SetRowLabelSize(0)
+        self.grid.SetLabelBackgroundColour('MIDNIGHT BLUE')
+        self.grid.SetLabelTextColour('WHITE')
+        self.grid.SetColLabelValue(0, "A ID")
+        self.grid.SetColLabelValue(1, "A Name")
+        self.grid.SetColSize(1,150)
+        self.grid.SetColLabelValue(2, "A Path")
+        self.grid.SetColSize(2,200)
+        self.grid.SetColLabelValue(3, "B ID")
+        self.grid.SetColLabelValue(4, "B Name")
+        self.grid.SetColSize(4,150)
+        self.grid.SetColLabelValue(5, "B Path")
+        self.grid.SetColSize(5,200)
+
+        self.grid.Bind(wx.grid.EVT_GRID_CELL_RIGHT_CLICK,
+                       self.OnRightClickGrid)
+
+    def OnRightClickGrid(self,event):
+        """
+        Show a context menu on right-click on grid row
+        """
+        if event.GetRow() == 0:
+            return
+        
+        if not hasattr(self, "row_rightclick_goto_a"):
+            self.row_rightclick_goto_a = wx.NewId()
+            self.row_rightclick_goto_b = wx.NewId()
+
+        menu = wx.Menu()
+        self.Bind(wx.EVT_MENU, self.OnRightClickMenuItem, menu.Append(self.row_rightclick_goto_a,"Goto Photo A"))
+        self.Bind(wx.EVT_MENU, self.OnRightClickMenuItem, menu.Append(self.row_rightclick_goto_b,"Goto Photo B"))
+        self.PopupMenu(menu)
+        menu.Destroy()
+
+    def OnRightClickMenuItem(self,event):
+        print "MENU: ID %s " % (event.GetId(),)
+
+    def _define_menu(self):
         filemenu = wx.Menu()
         menuAbout = filemenu.Append(wx.ID_ABOUT, "&About", " Information about this program")
         self.Bind(wx.EVT_MENU, self.OnAbout, menuAbout)
@@ -173,9 +212,14 @@ class DupBrowserFrame(wx.Frame):
 
     def Report(self,progress):
         self.SetStatusText(progress)
+        wx.Yield()
 
     def OnScan(self, event):
         self.Report("Starting scan of library ...")
+        self.grid.ClearGrid()
+        if self.grid.NumberRows>0:
+            self.grid.DeleteRows(0,self.grid.NumberRows)
+        wx.Yield()
         row = 0
         reporter = ProgressReporter()
         setattr(reporter,'Report',self.Report)
@@ -193,23 +237,21 @@ class DupBrowserFrame(wx.Frame):
                 wx.Yield()
                 row = row + 1
         except:
-            self.control.AppendText("Scan aborted with error:\n")
-            self.control.AppendText("SysError %s" % sys.exc_info()[1])
-            self.Report("Library scan aborted")
+            self.Report("Library scan aborted (%s)" % sys.exc_info()[1])
         self.Report("Scan completed")
 
 
-class DupBrowser(object):
+class DupFinder(object):
     def __init__(self):
         print "Starting up dup finder"
 
     def main(self):
         app = wx.App(False)
-        frame = DupBrowserFrame(None, "iPhoto Dup Finder")
+        frame = DupFinderFrame(None, "iPhoto Dup Finder")
         app.MainLoop()
 
 
-class JPhotoTest(unittest.TestCase):
+class DubFinderTest(unittest.TestCase):
     def test_HashedPhoto(self):
         iPhoto = app('iPhoto')
         album = iPhoto.photo_library_album()
@@ -221,4 +263,4 @@ class JPhotoTest(unittest.TestCase):
         self.assertEquals(photo1.image_path(),x.image_path,"Image path is correct")
 
 if __name__ == "__main__":
-    DupBrowser().main()
+    DupFinder().main()
