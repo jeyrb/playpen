@@ -6,7 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="872181a9-49a5-4ffb-a377-308c76224015" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/setup.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pyWork.iws" />
@@ -359,7 +359,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working right hand click menu and tool bar (dummy delete tool)" />
+    <option name="LAST_COMMIT_MESSAGE" value="first draft py2app" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -379,6 +379,7 @@
     <MESSAGE value="fix to yield and expand grid" />
     <MESSAGE value="Working scan, with dummy rh click menu" />
     <MESSAGE value="Working right hand click menu and tool bar (dummy delete tool)" />
+    <MESSAGE value="first draft py2app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
