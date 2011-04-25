@@ -14,6 +14,7 @@ import os
 import shutil
 import os.path
 
+
 __author__ = 'jey'
 
 class HashCache(object):
@@ -56,29 +57,46 @@ class HashCache(object):
 
 class HashedPhoto(object):
     cache = HashCache()
-    def __init__(self, album, photo):
-        self.id = photo.id()
+    def __init__(self, album, id, image_path):
+        self.id = id
         self._album = album
-        self.key = str(self.id)
+        self.key = str(id)
+        self._image_path = image_path
+        self._size = None
+
+    def _checksum(self,st):
+        return reduce(lambda x,y:x+y, map(ord, st))
+
+    @property
+    def fingerprint(self):
         if self.key in HashedPhoto.cache:
             phash = HashedPhoto.cache[self.key]
-            #print "Reusing cached hash for %d" % self.id
+            print "Reusing cached hash for %d" % self.id
         else:
-            #print "Generating hash for %d" % self.id
-            f = open(photo.image_path(), 'rb')
+            print "Generating hash for %d" % self.id
+            f = open(self.image_path, 'rb')
             h = hashlib.sha1()
             h.update(f.read())
             phash = h.hexdigest()
             f.close()
             HashedPhoto.cache[self.key]=phash
-        self.fingerprint = phash
+        return phash
+
+    @property
+    def size(self):
+        if self._size == None:
+            self._size = os.path.getsize(self.image_path)
+        return self._size
+
+    @property
+    def image_path(self):
+        if self._image_path == None:
+            self._image_path = self._album.photos.ID(self.id).image_path()
+        return self._image_path
 
     @property
     def name(self):
         return self._album.photos.ID(self.id).name()
-    @property
-    def image_path(self):
-        return self._album.photos.ID(self.id).image_path()
     @property
     def height(self):
         return self._album.photos.ID(self.ID).height()
@@ -94,19 +112,25 @@ def find_dups(iPhoto,progressreporter):
 
     progressreporter.Report("Retrieving photo list from iPhoto")
     album = iPhoto.photo_library_album()
-    album_size = len(album.photos())
-    progressreporter.Report("Scanning %d photos supplied by iPhoto" % album_size)
-    progressreporter.Target(album_size)
-    fingerprints = {}
-    for p in album.photos():
-        hp = HashedPhoto(album,p)
-        if hp.fingerprint in fingerprints:
-            prior = fingerprints[hp.fingerprint]
-            print "Duplicate photo A (%s) %s %s" % (prior.id, prior.name, prior.image_path)
-            print "Duplicate photo B (%s) %s %s" % (hp.id, hp.name, hp.image_path)
-            yield(hp, prior)
-        else:
-            fingerprints[hp.fingerprint] = hp
+
+    filesizes = {}
+    image_paths = album.photos.image_path.get()
+    ids = album.photos.id.get()
+
+    progressreporter.Target(len(ids))
+    progressreporter.Report("Scanning %d photos supplied by iPhoto" % len(ids))
+
+    for n in range(len(ids)):
+        hp = HashedPhoto(album,ids[n],image_paths[n])
+        if hp.size not in filesizes:
+            filesizes[hp.size] = []
+
+        for prior in filesizes[hp.size]:
+            if prior.fingerprint == hp.fingerprint:
+                print "Duplicate photo A (%s) %s %s" % (prior.id, prior.name, prior.image_path)
+                print "Duplicate photo B (%s) %s %s" % (hp.id, hp.name, hp.image_path)
+                yield(hp, prior)
+        filesizes[hp.size].append(hp)
         progressreporter.Increment()
 
 class ProgressReporter(object):
