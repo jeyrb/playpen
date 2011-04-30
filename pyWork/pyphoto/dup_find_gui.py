@@ -2,6 +2,8 @@
 import wx
 import wx.grid
 import appscript
+import sys
+
 from pyphoto.dup_find import ProgressReporter,DupFinder
 
 class DupFinderFrame(wx.Frame):
@@ -17,11 +19,12 @@ class DupFinderFrame(wx.Frame):
         panel.SetSizer(sizer)
         self.CreateStatusBar()
         self._define_menu()
-        self.Show(True)
+        self._stopped = False
         self.iPhoto = iPhoto
         reporter = ProgressReporter()
         setattr(reporter,'Report',self.Report)
         self._df = DupFinder(self.iPhoto,reporter)
+        self.Show(True)
 
     def _define_toolbar(self):
         TOOL_ID_SCAN = wx.NewId()
@@ -117,12 +120,17 @@ class DupFinderFrame(wx.Frame):
         dlg.Destroy()
 
     def OnExit(self, event):
+        print "Shutting down Dup Finder GUI"
+        self._stopped = True
         self._df.stop()
         self.Close(True)
 
     def Report(self,progress):
-        self.SetStatusText(progress)
-        wx.Yield()
+        if self._stopped:
+            print progress
+        else:
+            self.SetStatusText(progress)
+            wx.Yield()
 
     def OnScan(self, event):
         self.Report("Starting scan of library ...")
@@ -160,3 +168,5 @@ class DupFinderGUI(object):
         iPhoto = appscript.app('iPhoto')
         frame = DupFinderFrame(None, "iPhoto Dup Finder",iPhoto)
         gui.MainLoop()
+        sys.exit()
+
