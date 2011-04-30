@@ -23,7 +23,7 @@ class HashCache(object):
 
     def clean(self):
         if os.path.exists(HashCache.cachedir):
-            print "Cleaning %d entries from cache " % self.len()
+            print "Cleaning %d entries from cache " % len(self)
             shutil.rmtree(HashCache.cachedir)
             os.makedirs(HashCache.cachedir)
 
@@ -118,11 +118,16 @@ class DupFinder(object):
         self._cache = HashCache()
         self._app = iPhoto
         self._reporter = reporter
+        self._die = False
 
     def clean(self):
         self._cache.clean()
 
+    def stop(self):
+        self._die = True
+
     def find_dups(self):
+        self._die = False
         self._reporter.Report("Connecting to iPhoto")
 
         self._reporter.Report("Retrieving photo list from iPhoto")
@@ -136,6 +141,10 @@ class DupFinder(object):
         self._reporter.Report("Scanning %d photos supplied by iPhoto" % len(ids))
 
         for n in range(len(ids)):
+            if self._die:
+                print "Dup find aborted"
+                break
+
             hp = HashedPhoto(album, ids[n], image_paths[n], self._cache)
             if hp.size not in filesizes:
                 filesizes[hp.size] = []

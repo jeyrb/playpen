@@ -19,6 +19,9 @@ class DupFinderFrame(wx.Frame):
         self._define_menu()
         self.Show(True)
         self.iPhoto = iPhoto
+        reporter = ProgressReporter()
+        setattr(reporter,'Report',self.Report)
+        self._df = DupFinder(self.iPhoto,reporter)
 
     def _define_toolbar(self):
         TOOL_ID_SCAN = wx.NewId()
@@ -105,7 +108,7 @@ class DupFinderFrame(wx.Frame):
         self.SetMenuBar(menuBar)
 
     def OnClean(self,event):
-        HashCache().clean()
+        self._df.clean()
         self.Report("Cache cleaned")
 
     def OnAbout(self, event):
@@ -114,6 +117,7 @@ class DupFinderFrame(wx.Frame):
         dlg.Destroy()
 
     def OnExit(self, event):
+        self._df.stop()
         self.Close(True)
 
     def Report(self,progress):
@@ -127,11 +131,10 @@ class DupFinderFrame(wx.Frame):
             self.grid.DeleteRows(0,self.grid.NumberRows)
         wx.Yield()
         row = 0
-        reporter = ProgressReporter()
-        setattr(reporter,'Report',self.Report)
-        df = DupFinder(self.iPhoto,reporter)
+
+
         try:
-            for (dup, prior) in df.find_dups():
+            for (dup, prior) in self._df.find_dups():
                 if row >= self.rowlimit:
                     self.grid.AppendRows(1)
                     self.rowlimit=self.rowlimit+1
