@@ -22,6 +22,7 @@ class PossibleDuplicate:
         return d
 
 def find_tracks():
+    """Search iTunes library for duplicate tracks and report possible duplicates to stdout"""
 
     iTunes = app('iTunes')
     library = iTunes.library_playlists['Library']
@@ -53,3 +54,5 @@ class JeyTunesTest(unittest.TestCase):
     def test_list(self):
         find_tracks()
 
+if __name__ == "__main__":
+    find_tracks()

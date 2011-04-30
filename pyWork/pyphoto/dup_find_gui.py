@@ -1,153 +1,8 @@
-#!/usr/bin/env python
 
-"""Detect duplicate photos in an iPhoto library, using SHA1 hashes to determine equality
-"""
-
-import appscript
-import os.path
-import unittest
-import hashlib
 import wx
 import wx.grid
-import sys
-import os
-import shutil
-import os.path
-
-
-__author__ = 'jey'
-
-class HashCache(object):
-    cachedir='/tmp/iphotoduphashcache'
-    def __init__(self):
-        if not os.path.exists(HashCache.cachedir):
-            os.makedirs(HashCache.cachedir)
-    def clean(self):
-        if os.path.exists(HashCache.cachedir):
-            print "Cleaning %d entries from cache " % self.len()
-            shutil.rmtree(HashCache.cachedir)
-            os.makedirs(HashCache.cachedir)
-            
-    def __setitem__(self, key, value):
-        file = self._cachefile(key)
-        f = open(file,'w')
-        f.write(value)
-        f.close()
-    def __contains__(self,item):
-        file = self._cachefile(item)
-        if os.path.exists(file):
-            return True
-        else:
-            return False
-
-    def __getitem__(self,key):
-        file = self._cachefile(key)
-        if os.path.exists(file):
-            f = open(file,"r")
-            hash = f.read()
-            f.close()
-            return hash
-        else:
-            return None
-    def __len__(self):
-        return len([name for name in os.listdir(HashCache.cachedir) if os.path.isfile(name)])
-
-    def _cachefile(self,id):
-        return os.path.join(HashCache.cachedir,id)
-
-class HashedPhoto(object):
-    cache = HashCache()
-    def __init__(self, album, id, image_path):
-        self.id = id
-        self._album = album
-        self.key = str(id)
-        self._image_path = image_path
-        self._size = None
-
-    def _checksum(self,st):
-        return reduce(lambda x,y:x+y, map(ord, st))
-
-    @property
-    def fingerprint(self):
-        if self.key in HashedPhoto.cache:
-            phash = HashedPhoto.cache[self.key]
-            print "Reusing cached hash for %d" % self.id
-        else:
-            print "Generating hash for %d" % self.id
-            f = open(self.image_path, 'rb')
-            h = hashlib.sha1()
-            h.update(f.read())
-            phash = h.hexdigest()
-            f.close()
-            HashedPhoto.cache[self.key]=phash
-        return phash
-
-    @property
-    def size(self):
-        if self._size == None:
-            self._size = os.path.getsize(self.image_path)
-        return self._size
-
-    @property
-    def image_path(self):
-        if self._image_path == None:
-            self._image_path = self._album.photos.ID(self.id).image_path()
-        return self._image_path
-
-    @property
-    def name(self):
-        return self._album.photos.ID(self.id).name()
-    @property
-    def height(self):
-        return self._album.photos.ID(self.ID).height()
-    @property
-    def width(self):
-        return self._album.photos.ID(self.ID).width()
-    @property
-    def date(self):
-        return self._album.photos.ID(self.ID).date()
-
-def find_dups(iPhoto,progressreporter):
-    progressreporter.Report("Connecting to iPhoto")
-
-    progressreporter.Report("Retrieving photo list from iPhoto")
-    album = iPhoto.photo_library_album()
-
-    filesizes = {}
-    image_paths = album.photos.image_path.get()
-    ids = album.photos.id.get()
-
-    progressreporter.Target(len(ids))
-    progressreporter.Report("Scanning %d photos supplied by iPhoto" % len(ids))
-
-    for n in range(len(ids)):
-        hp = HashedPhoto(album,ids[n],image_paths[n])
-        if hp.size not in filesizes:
-            filesizes[hp.size] = []
-
-        for prior in filesizes[hp.size]:
-            if prior.fingerprint == hp.fingerprint:
-                print "Duplicate photo A (%s) %s %s" % (prior.id, prior.name, prior.image_path)
-                print "Duplicate photo B (%s) %s %s" % (hp.id, hp.name, hp.image_path)
-                yield(hp, prior)
-        filesizes[hp.size].append(hp)
-        progressreporter.Increment()
-
-class ProgressReporter(object):
-    def __init__(self):
-        self.count = 0
-        self.target = 0
-
-    def Report(self,progress):
-        print progress
-
-    def Increment(self):
-        self.count = self.count + 1
-        if self.count % 10 == 0:
-            self.Report("Scanned %d of %d" % (self.count,self.target))
-
-    def Target(self,target):
-        self.target = target
+import appscript
+from pyphoto.dup_find import ProgressReporter,DupFinder
 
 class DupFinderFrame(wx.Frame):
     rowlimit=0
@@ -169,7 +24,7 @@ class DupFinderFrame(wx.Frame):
         TOOL_ID_SCAN = wx.NewId()
         TOOL_ID_DELETE = wx.NewId()
         TOOL_ID_EXIT = wx.NewId()
-        
+
         tb = wx.ToolBar(self,-1)
         self.SetToolBar(tb)
         tb.AddLabelTool(TOOL_ID_SCAN,'Scan',wx.Bitmap('icons/scan.png'), wx.NullBitmap,wx.ITEM_NORMAL,'Scan iPhoto for duplicates')
@@ -186,8 +41,8 @@ class DupFinderFrame(wx.Frame):
         self.grid.CreateGrid(self.rowlimit, 6)
         self.grid.EnableEditing(False)
         #self.grid.AutoSizeColumns(True)
-        dup_colour = wx.Colour(255,239,213)
-        prior_colour = wx.Colour(238,210,238)
+        #dup_colour = wx.Colour(255,239,213)
+        #prior_colour = wx.Colour(238,210,238)
         self.grid.SetRowLabelSize(0)
         self.grid.SetLabelBackgroundColour('MIDNIGHT BLUE')
         self.grid.SetLabelTextColour('WHITE')
@@ -211,7 +66,7 @@ class DupFinderFrame(wx.Frame):
         """
         if event.GetRow() == 0:
             return
-        
+
         if not hasattr(self, "row_rightclick_goto_a"):
             self.row_rightclick_goto_a = wx.NewId()
             self.row_rightclick_goto_b = wx.NewId()
@@ -274,8 +129,9 @@ class DupFinderFrame(wx.Frame):
         row = 0
         reporter = ProgressReporter()
         setattr(reporter,'Report',self.Report)
+        df = DupFinder(self.iPhoto,reporter)
         try:
-            for (dup, prior) in find_dups(self.iPhoto,reporter):
+            for (dup, prior) in df.find_dups():
                 if row >= self.rowlimit:
                     self.grid.AppendRows(1)
                     self.rowlimit=self.rowlimit+1
@@ -292,27 +148,12 @@ class DupFinderFrame(wx.Frame):
         self.Report("Scan completed")
 
 
-class DupFinder(object):
+class DupFinderGUI(object):
     def __init__(self):
         print "Starting up dup finder"
 
     def main(self):
-        app = wx.App(False)
+        gui = wx.App(False)
         iPhoto = appscript.app('iPhoto')
         frame = DupFinderFrame(None, "iPhoto Dup Finder",iPhoto)
-        app.MainLoop()
-
-
-class DubFinderTest(unittest.TestCase):
-    def test_HashedPhoto(self):
-        iPhoto = app('iPhoto')
-        album = iPhoto.photo_library_album()
-        photo1 = album.photos[0]
-        x = HashedPhoto(album,photo1)
-        x.fingerprint
-        self.assertEquals(photo1.id(),x.id,"ID is correct")
-        self.assertEquals(photo1.name(),x.name,"Name is correct")
-        self.assertEquals(photo1.image_path(),x.image_path,"Image path is correct")
-
-if __name__ == "__main__":
-    DupFinder().main()
+        gui.MainLoop()

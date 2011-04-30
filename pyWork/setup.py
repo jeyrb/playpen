@@ -7,7 +7,7 @@ Usage:
 
 from setuptools import setup
 
-APP = ['iPhotoDupFind.py']
+APP = ['dup_find.py']
 DATA_FILES = []
 OPTIONS = {'argv_emulation': False,
 		'resources': 'icons'}
