@@ -9,7 +9,15 @@ class Control(object):
         self.id=int(imported_control.attrib.get('controlID'))
         self.mock_control = imported_control
         self.position=(int(imported_control.attrib['x']),int(imported_control.attrib['y']))
-        self.size=(int(imported_control.attrib['measuredW']),int(imported_control.attrib['measuredH']))
+        if imported_control.attrib['w'] == '-1':
+            width = int(imported_control.attrib['measuredW'])
+        else:
+            width = int(imported_control.attrib['w'])
+        if imported_control.attrib['h'] == '-1':
+            height = int(imported_control.attrib['measuredH'])
+        else:
+            height = int(imported_control.attrib['h'])
+        self.size=(width,height)
         print "Created control type %s size %d,%d position %d,%d" % (self.btype,self.size[0],self.size[1],self.position[0],self.position[1])
     def __str__(self):
         return "ID: %s Type:%s" % (self.id,self.btype)
@@ -36,7 +44,7 @@ class Button(Control):
 class TextInput(Control):
     btype="com.balsamiq.mockups::TextInput"
     def _render(self,parent):
-        return wx.TextCtrl(parent, self.id, self.Text(), self.position, self.size)
+        return wx.TextCtrl(parent, self.id, self.Text(), pos=self.position, size=self.size)
 
 class TextArea(Control):
     btype="com.balsamiq.mockups::TextArea"
@@ -62,9 +70,8 @@ class ComboBox(Control):
 class NumericChooser(Control):
     btype="com.balsamiq.mockups::NumericStepper"
     def _render(self,parent):
-        choices=self.mock_control.findtext('controlProperties/text').split('%0A')
-        #ignore size for combo boxes
-        return wx.SpinCtrl(parent, self.id, self.Text(), self.position,min=0,max=999)
+        #ignore mockup size
+        return wx.SpinCtrl(parent, self.id, self.Text(), pos=self.position,min=0,max=999)
 
 class CheckBox(Control):
     btype="com.balsamiq.mockups::CheckBox"
@@ -75,7 +82,7 @@ class CheckBox(Control):
 class Label(Control):
     btype="com.balsamiq.mockups::Label"
     def _render(self,parent):
-        return wx.StaticText(parent, self.id, self.Text(), self.position, self.size)
+        return wx.StaticText(parent, self.id, self.Text(), pos=self.position, size=self.size)
 
 class Paragraph(Label):
     btype="com.balsamiq.mockups::Paragraph"
