@@ -2,7 +2,7 @@ __author__ = 'jey'
 
 from xml.etree import ElementTree
 import wxBalsamiq.controls.widgets
-import wxBalsamiq.hifi.wx
+from wxBalsamiq.hifi.wxhifi import wxHiFiMockup
 
 control_classes={}
 for widget in dir(wxBalsamiq.controls.widgets):
@@ -22,5 +22,8 @@ for bcontrol in bdom.getiterator('control'):
     else:
         print "Ignoring unsupported control %s" % type
 
-mockup = wxHiFiMockup()
+mockup=bdom.getroot()
+size=(int(mockup.attrib['mockupW']),int(mockup.attrib['mockupH']))
+print "Mockup is size %d by %d" % (size[0],size[1])
+mockup = wxHiFiMockup(size,controls)
 mockup.main()
