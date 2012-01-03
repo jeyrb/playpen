@@ -41,6 +41,11 @@ class HashCache(object):
             return False
 
     def __getitem__(self, key):
+        """
+        
+        :param key:
+        :return:
+        """
         file = self._cachefile(key)
         if os.path.exists(file):
             f = open(file, "r")

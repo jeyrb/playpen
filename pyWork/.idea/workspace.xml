@@ -8,17 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="872181a9-49a5-4ffb-a377-308c76224015" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../wxBalsamiq/fixtures/photo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../wxBalsamiq/.idea/dictionaries/jey.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../wxBalsamiq/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../wxBalsamiq/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../wxBalsamiq/wxBalsamiq/hifi/wxhifi.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../wxBalsamiq/wxBalsamiq/hifi/wx.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/pyWork.iml" afterPath="$PROJECT_DIR$/.idea/pyWork.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyphoto/dup_find.py" afterPath="$PROJECT_DIR$/pyphoto/dup_find.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyphoto/dup_find_gui.py" afterPath="$PROJECT_DIR$/pyphoto/dup_find_gui.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wxBalsamiq/fixtures/photo.bmml" afterPath="$PROJECT_DIR$/../wxBalsamiq/fixtures/photo.bmml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wxBalsamiq/wxBalsamiq.py" afterPath="$PROJECT_DIR$/../wxBalsamiq/wxBalsamiq.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wxBalsamiq/wxBalsamiq/controls/widgets.py" afterPath="$PROJECT_DIR$/../wxBalsamiq/wxBalsamiq/controls/widgets.py" />
     </list>
     <ignored path="pyWork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +26,6 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-    <option name="REVERSE_PATCH" value="false" />
   </component>
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
@@ -41,20 +35,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dup_find_gui.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pyphoto/dup_find_gui.py">
+      <file leaf-file-name="dup_find.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pyphoto/dup_find.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="69" selection-start="307" selection-end="307" vertical-scroll-proportion="0.12396694">
+            <state line="56" column="0" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_windows.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///usr/local/lib/wxPython-2.9.1.1/lib/python2.7/site-packages/wx-2.9.1-osx_cocoa/wx/_windows.py">
+      <file leaf-file-name="iPhotoDupFinderGui.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/iPhotoDupFinderGui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="564" column="6" selection-start="22326" selection-end="22326" vertical-scroll-proportion="0.0">
+            <state line="3" column="0" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dup_find.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pytunes/dup_find.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="10" selection-start="1149" selection-end="1149" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dup_find_gui.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pyphoto/dup_find_gui.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="79" column="17" selection-start="3144" selection-end="3144" vertical-scroll-proportion="0.8129676">
+              <folding>
+                <element signature="e#1#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,11 +97,17 @@
         <option value="$PROJECT_DIR$/pytunes/dup_find.py" />
         <option value="$PROJECT_DIR$/pytunes/dup_find_gui.py" />
         <option value="$PROJECT_DIR$/pyphoto/__init__.py" />
-        <option value="$PROJECT_DIR$/pyphoto/dup_find.py" />
         <option value="$PROJECT_DIR$/launch.py" />
+        <option value="$PROJECT_DIR$/pyphoto/dup_find.py" />
         <option value="$PROJECT_DIR$/pyphoto/dup_find_gui.py" />
       </list>
     </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-3" />
+    <option name="y" value="22" />
+    <option name="width" value="1440" />
+    <option name="height" value="813" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -102,7 +122,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>SpellCheckingInspection</id>
+            <id>Django</id>
           </State>
         </selected-state>
       </profile-state>
@@ -134,6 +154,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -145,35 +175,110 @@
               <option name="myItemId" value="External Libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.1 (/Library/Frameworks/Python.framework/Versions/2.7/bin/pythonw2.7-32) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="pyWork" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.1 (/Library/Frameworks/Python.framework/Versions/2.7/bin/pythonw2.7-32) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appscript-1.0.0-py2.7-macosx-10.6-intel.egg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="Favorites" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyWork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.1 (/Library/Frameworks/Python.framework/Versions/2.7/bin/pythonw2.7-32) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appscript-1.0.0-py2.7-macosx-10.6-intel.egg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appscript" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyWork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.1 (/Library/Frameworks/Python.framework/Versions/2.7/bin/pythonw2.7-32) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appscript-1.0.0-py2.7-macosx-10.6-intel.egg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="aem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyWork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pyWork" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <PyConsoleSettings>
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="pyWork" />
+      </PyConsoleSettings>
+    </option>
+    <option name="myDjangoConsoleState">
+      <PyConsoleSettings />
+    </option>
+  </component>
+  <component name="PyCoverageOptionsProvider">
+    <option name="myUseBundledCoveragePy" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -181,74 +286,74 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.iPhotoDupFinderGui">
-    <configuration default="false" name="iphoto-web" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <module name="pyWork" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iphoto-web.py" />
-      <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PyDebugRunner" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Unittests in iPhotoDupFind.py" type="PythonUnitTestConfigurationType" factoryName="Python's unittest" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <module name="pyWork" />
-      <option name="SCRIPT_NAME" value="iPhotoDupFind.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="PUREUNITTEST" value="true" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Unittests in dup_find.py" type="PythonUnitTestConfigurationType" factoryName="Python's unittest" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pytunes" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <module name="pyWork" />
-      <option name="SCRIPT_NAME" value="dup_find.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="PUREUNITTEST" value="true" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="launch" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/2.7/bin/pythonw2.7-32" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="/usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx" />
       <option name="IS_MODULE_SDK" value="true" />
       <module name="pyWork" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/launch.py" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="/usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/__init__.py" />
       <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="helpviewer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/2.7/bin/pythonw2.7-32" />
+      <option name="WORKING_DIRECTORY" value="/usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="pyWork" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="/usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/helpviewer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="launcher" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/2.7/bin/pythonw2.7-32" />
+      <option name="WORKING_DIRECTORY" value="/usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/Editra" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="pyWork" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="/usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/Editra/launcher.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/2.7/bin/pythonw2.7-32" />
+      <option name="WORKING_DIRECTORY" value="/usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/Editra" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="pyWork" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="/usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/Editra/setup.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -263,27 +368,14 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <module name="pyWork" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iPhotoDupFinderGui.py" />
       <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
-    <configuration default="true" type="PythonUnitTestConfigurationType" factoryName="Python's unittest">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <module name="pyWork" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="PUREUNITTEST" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -296,11 +388,13 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <module name="pyWork" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iPhotoDupFind.py" />
       <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="PythonDocTestRunConfigurationType" factoryName="Python's doctests">
+    <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -308,12 +402,15 @@
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <module name="pyWork" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
       <method />
     </configuration>
     <configuration default="false" name="iPhotoDupFind" type="PythonConfigurationType" factoryName="Python">
@@ -326,8 +423,10 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <module name="pyWork" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iPhotoDupFind.py" />
       <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -344,8 +443,10 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pyphoto" />
       <option name="IS_MODULE_SDK" value="true" />
       <module name="pyWork" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pyphoto/dup_find_gui.py" />
       <option name="PARAMETERS" value="" />
+      <option name="MULTIPROCESS" value="false" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -353,13 +454,13 @@
       <method />
     </configuration>
     <list size="7">
-      <item index="0" class="java.lang.String" itemvalue="Python.iphoto-web" />
-      <item index="1" class="java.lang.String" itemvalue="Python's unittest.Unittests in iPhotoDupFind.py" />
-      <item index="2" class="java.lang.String" itemvalue="Python's unittest.Unittests in dup_find.py" />
-      <item index="3" class="java.lang.String" itemvalue="Python.launch" />
-      <item index="4" class="java.lang.String" itemvalue="Python.iPhotoDupFinderGui" />
-      <item index="5" class="java.lang.String" itemvalue="Python.iPhotoDupFind" />
-      <item index="6" class="java.lang.String" itemvalue="Python.dup_find_gui" />
+      <item index="0" class="java.lang.String" itemvalue="Python.iPhotoDupFind" />
+      <item index="1" class="java.lang.String" itemvalue="Python.dup_find_gui" />
+      <item index="2" class="java.lang.String" itemvalue="Python.__init__" />
+      <item index="3" class="java.lang.String" itemvalue="Python.helpviewer" />
+      <item index="4" class="java.lang.String" itemvalue="Python.launcher" />
+      <item index="5" class="java.lang.String" itemvalue="Python.setup" />
+      <item index="6" class="java.lang.String" itemvalue="Python.iPhotoDupFinderGui" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -387,7 +488,17 @@
       <created>1303052909376</created>
       <updated>1303052909376</updated>
     </task>
-    <servers />
+    <servers>
+      <GitHub shared="false">
+        <password>dfdedfc5dfd8dfdedfc5dfc6dfcbdf9adf9d</password>
+        <option name="repoAuthor" value="jeyrb" />
+        <option name="repoName" value="playpen" />
+        <option name="url" value="https://github.com" />
+        <option name="useHttpAuthentication" value="true" />
+        <option name="useProxy" value="false" />
+        <username>jeyrb</username>
+      </GitHub>
+    </servers>
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -410,31 +521,46 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="160" y="64" width="1280" height="767" extended-state="1" />
-    <editor active="false" />
+    <frame x="-3" y="22" width="1440" height="813" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299712" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2093949" sideWeight="0.76816076" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2093949" sideWeight="0.2194745" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39876354" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3477589" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19971265" sideWeight="0.32853025" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19971265" sideWeight="0.31556195" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39769453" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39769453" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34582132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819724" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39876354" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
     <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
     <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
     <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
@@ -442,10 +568,17 @@
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
     <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
+    <option name="ENABLE_BACKGROUND_PROCESSES" value="true" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="LAST_COMMIT_MESSAGE" value="first reworking refactored version of iphoto dup finder" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
@@ -473,89 +606,135 @@
     <MESSAGE value="fixed HashCache len usage" />
     <MESSAGE value="first reworking refactored version of iphoto dup finder" />
   </component>
+  <component name="WindowDressing">
+    <option name="x" value="36" />
+    <option name="y" value="68" />
+    <option name="width" value="1280" />
+    <option name="height" value="767" />
+    <option name="extendedState" value="0" />
+  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/pyphoto/dup_find_gui.py</url>
+          <line>67</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/pyphoto/dup_find_gui.py</url>
+          <line>78</line>
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Python/2.6/site-packages/appscript-1.0.0-py2.6-macosx-10.6-universal.egg!/appscript/defaultterminology.py">
+    <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/_controls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="10" selection-start="994" selection-end="994" vertical-scroll-proportion="1.2028302" />
+        <state line="3157" column="0" selection-start="132575" selection-end="132575" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/posixpath.py">
+    <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/helpviewer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2146" selection-end="2146" vertical-scroll-proportion="0.53775746" />
+        <state line="19" column="22" selection-start="650" selection-end="650" vertical-scroll-proportion="0.6674473">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Python/2.6/site-packages/appscript-1.0.0-py2.6-macosx-10.6-universal.egg!/appscript/reference.py">
+    <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/Editra/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-19.705189" />
+        <state line="17" column="13" selection-start="678" selection-end="678" vertical-scroll-proportion="0.52693206">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/posixpath.py">
+    <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/Editra/launcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2141" selection-end="2141" vertical-scroll-proportion="0.33247423" />
+        <state line="9" column="9" selection-start="408" selection-end="408" vertical-scroll-proportion="0.31615925">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+    <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/Editra/INSTALL">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="931" column="0" selection-start="39799" selection-end="39799" vertical-scroll-proportion="0.33333334" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.035128806">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/os.py">
+    <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/grid.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="4" selection-start="4281" selection-end="4281" vertical-scroll-proportion="6.1082473" />
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/wxPython-2.9.1.1/lib/python2.7/site-packages/wx-2.9.1-osx_cocoa/wx/_core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10512" column="8" selection-start="394515" selection-end="394515" vertical-scroll-proportion="0.37606838" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/icons/scan.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="28" selection-start="121" selection-end="121" vertical-scroll-proportion="0.26717559" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pytunes/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="41" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyphoto/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="37" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pytunes/dup_find.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1589" selection-end="1615" vertical-scroll-proportion="0.7379135" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyphoto/dup_find.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="16" selection-start="4048" selection-end="4048" vertical-scroll-proportion="0.0" />
+        <state line="862" column="27" selection-start="37238" selection-end="37238" vertical-scroll-proportion="-3.2307692">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/iPhotoDupFinderGui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="46" selection-end="46" vertical-scroll-proportion="0.114503816" />
+        <state line="3" column="0" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/wxPython-2.9.1.1/lib/python2.7/site-packages/wx-2.9.1-osx_cocoa/wx/_windows.py">
+    <entry file="file://$PROJECT_DIR$/pytunes/dup_find.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="564" column="6" selection-start="22326" selection-end="22326" vertical-scroll-proportion="0.0" />
+        <state line="39" column="10" selection-start="1149" selection-end="1149" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/_core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12121" column="0" selection-start="457183" selection-end="457183" vertical-scroll-proportion="0.3043478">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/aem/ae.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/aem/aemreference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/aem/mactypes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/mactypes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/appscript/reference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-13.84058">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyphoto/dup_find.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pyphoto/dup_find_gui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="69" selection-start="307" selection-end="307" vertical-scroll-proportion="0.12396694">
-          <folding />
+        <state line="79" column="17" selection-start="3144" selection-end="3144" vertical-scroll-proportion="0.8129676">
+          <folding>
+            <element signature="e#1#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

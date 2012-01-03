@@ -5,18 +5,16 @@ import appscript
 import sys
 
 from pyphoto.dup_find import ProgressReporter,DupFinder
-import wx.grid.PyGridTableBase
 
 class DupFinderFrame(wx.Frame):
-    rowlimit=0
 
     def __init__(self, parent, title, iPhoto):
         wx.Frame.__init__(self, parent, title=title, size=(850, 300))
         panel = wx.Panel(self)
         self._define_toolbar()
-        self._define_grid(panel)
+        self._grid = DupFinderGridModel( wx.grid.Grid(panel), self.OnRightClickGrid )
         sizer = wx.BoxSizer(wx.VERTICAL)
-        sizer.Add(self._grid, 1, wx.EXPAND)
+        sizer.Add(self._grid.GetGrid(), 1, wx.EXPAND)
         panel.SetSizer(sizer)
         self.CreateStatusBar()
         self._define_menu()
@@ -42,20 +40,6 @@ class DupFinderFrame(wx.Frame):
         self.Bind(wx.EVT_TOOL,self.OnExit,id=TOOL_ID_EXIT)
         tb.Realize()
 
-
-    def _define_grid(self, panel):
-        self._grid = wx.grid.Grid(panel)
-        self._grid_model = DupFinderGridModel()
-        self._grid.SetTable(self._grid_model)
-        self._grid.CreateGrid(self.rowlimit, 6)
-        self._grid.EnableEditing(False)
-        #self.grid.AutoSizeColumns(True)
-        #dup_colour = wx.Colour(255,239,213)
-        #prior_colour = wx.Colour(238,210,238)
-
-        self._grid.Bind(wx.grid.EVT_GRID_CELL_RIGHT_CLICK,
-                       self.OnRightClickGrid)
-
     def OnRightClickGrid(self,event):
         """
         Show a context menu on right-click on grid row
@@ -66,23 +50,34 @@ class DupFinderFrame(wx.Frame):
         if not hasattr(self, "row_rightclick_goto_a"):
             self.row_rightclick_goto_a = wx.NewId()
             self.row_rightclick_goto_b = wx.NewId()
-        self.cicked_row = event.GetRow()
+        self.clicked_row = event.GetRow()
         menu = wx.Menu()
-        self.Bind(wx.EVT_MENU, self.OnRightClickMenuItem, menu.Append(self.row_rightclick_goto_a,"Goto Photo A"))
-        self.Bind(wx.EVT_MENU, self.OnRightClickMenuItem, menu.Append(self.row_rightclick_goto_b,"Goto Photo B"))
+        self.Bind(wx.EVT_MENU, self.OnRightClickShowPhoto, menu.Append(self.row_rightclick_goto_a,"Goto Photo A"))
+        self.Bind(wx.EVT_MENU, self.OnRightClickFlagPhoto, menu.Append(self.row_rightclick_goto_a,"Flag Photo A"))
+        self.Bind(wx.EVT_MENU, self.OnRightClickShowPhoto, menu.Append(self.row_rightclick_goto_b,"Goto Photo B"))
+        self.Bind(wx.EVT_MENU, self.OnRightClickFlagPhoto, menu.Append(self.row_rightclick_goto_b,"Flag Photo B"))
         self.PopupMenu(menu)
         menu.Destroy()
 
-    def OnRightClickMenuItem(self,event):
+    def OnRightClickShowPhoto(self,event):
 
         if event.GetId() == self.row_rightclick_goto_a:
             id_col = 0
         else:
             id_col = 3
-        id = self._grid.GetCellValue(self.cicked_row,id_col)
+        id = self._grid.GetValue( self.clicked_row,id_col )
         self.iPhoto.photo_library_album().photos.ID(int(id)).select()
         self.iPhoto.reopen()
 
+    def OnRightClickFlagPhoto(self,event):
+
+            if event.GetId() == self.row_rightclick_goto_a:
+                id_col = 0
+            else:
+                id_col = 3
+            id = self._grid.GetValue( self.clicked_row,id_col )
+            photo = self.iPhoto.photo_library_album().photos.ID(int(id)).select()
+            photo.assign_keyword(u'POSSIBLE_DUPLICATE')
 
     def _define_menu(self):
         filemenu = wx.Menu()
@@ -128,44 +123,123 @@ class DupFinderFrame(wx.Frame):
 
     def OnScan(self, event):
         self.Report("Starting scan of library ...")
-        self._grid.ClearGrid()
-        if self._grid.NumberRows>0:
-            self._grid.DeleteRows(0,self._grid.NumberRows)
-        wx.Yield()
+        self._grid.Clear()
         row = 0
 
 
         try:
             for (dup, prior) in self._df.find_dups():
-                if row >= self.rowlimit:
-                    self._grid.AppendRows(1)
-                    self.rowlimit=self.rowlimit+1
-                self._grid.SetCellValue(row,0,str(dup.id))
-                self._grid.SetCellValue(row,1,dup.name)
-                self._grid.SetCellValue(row,2,dup.image_path)
-                self._grid.SetCellValue(row,3,str(prior.id))
-                self._grid.SetCellValue(row,4,prior.name)
-                self._grid.SetCellValue(row,5,prior.image_path)
-                wx.Yield()
-                row = row + 1
+                self._grid.AppendRow( ( str(dup.id),
+                                            dup.name,
+                                            dup.image_path,
+                                            prior.id,
+                                            prior.name,
+                                            prior.image_path) )
         except:
             self.Report("Library scan aborted (%s)" % sys.exc_info()[1])
         self.Report("Scan completed")
 
-class DupFinderGridModel(wx.grid.PyGridTableBase):
-        self.base_SetRowLabelSize(0)
-        self.base_SetLabelBackgroundColour('MIDNIGHT BLUE')
-        self._grid.SetLabelTextColour('WHITE')
-        self._grid.SetColLabelValue(0, "A ID")
-        self._grid.SetColLabelValue(1, "A Name")
-        self._grid.SetColSize(1,150)
-        self._grid.SetColLabelValue(2, "A Path")
-        self._grid.SetColSize(2,200)
-        self._grid.SetColLabelValue(3, "B ID")
-        self._grid.SetColLabelValue(4, "B Name")
-        self._grid.SetColSize(4,150)
-        self._grid.SetColLabelValue(5, "B Path")
-        self._grid.SetColSize(5,200)
+
+class DupFinderGridModel( wx.grid.PyGridTableBase ):
+    columns = [
+                { 'label': { 'value': 'A ID'}, 'fontSize' : 8, 'fg': wx.GREEN, 'width' : 60 },
+                { 'label': { 'value': 'A Name'}, 'fontSize': 10, 'fg': wx.GREEN,'width' : 150 },
+                { 'label': { 'value': 'A Path'}, 'hAlign': wx.ALIGN_RIGHT, 'fontSize': 8, 'fg': wx.GREEN,'width' : 250 },
+                { 'label': { 'value': 'B ID'}, 'fontSize': 8, 'fg': wx.BLUE,'width' : 60 },
+                { 'label': { 'value': 'B Name'}, 'fontSize': 10, 'fg': wx.BLUE,'width' : 150 },
+                { 'label': { 'value': 'B Path'}, 'hAlign': wx.ALIGN_RIGHT, 'fontSize': 8, 'fg': wx.BLUE,'width' : 250 }
+            ]
+
+    def __init__(self, grid, rightClickHandler ):
+        super(DupFinderGridModel,self).__init__()
+        self.ResetData()
+        self._grid = grid
+        self._grid.SetTable( self )
+        self._grid.EnableEditing(False)
+        self._grid.Bind(wx.grid.EVT_GRID_CELL_RIGHT_CLICK,rightClickHandler)
+        for ( col, config ) in enumerate(self.columns):
+            if 'width' in config:
+                self._grid.SetColSize( col, config['width'] )
+            attr =  wx.grid.GridCellAttr()
+            if 'hAlign' in config:
+                attr.SetAlignment( config['hAlign'], wx.ALIGN_CENTRE_VERTICAL )
+            if 'fontSize' in config:
+                font = wx.Font(config['fontSize'], wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL,wx.FONTWEIGHT_NORMAL )
+                attr.SetFont( font )
+            if 'fg' in config:
+                attr.SetTextColour( config['fg'] )
+            attr.SetReadOnly( True )
+            self._grid.SetColAttr( col, attr)
+
+    def UpdateValues(self ):
+            msg = wx.grid.GridTableMessage( self, wx.grid.GRIDTABLE_REQUEST_VIEW_GET_VALUES )
+            self._grid.ProcessTableMessage(msg)
+
+    def GetNumberRows( self ):
+        return len( self.data )
+
+    def GetGrid(self ):
+        return self._grid
+
+    def GetNumberCols( self ):
+        return len ( self.columns )
+
+    def AppendRow ( self, row ):
+        self.data.append( row )
+        self.ResetView()
+
+    def ResetData(self ):
+        self.data = []
+        self.currentRows = 0
+
+    def Clear ( self ):
+        self.ResetData()
+        super(DupFinderGridModel,self).Clear()
+        self.ResetView()
+
+    def ResetView(self):
+        """Trim/extend the control's rows and update all values"""
+        self._grid.BeginBatch()
+        if self.GetNumberRows() < self.currentRows:
+            msg = wx.grid.GridTableMessage(
+                            self,
+                            wx.grid.GRIDTABLE_NOTIFY_ROWS_DELETED,
+                            self.GetNumberRows(),    # position
+                            self.currentRows-self.GetNumberRows(),
+                            )
+            self._grid.ProcessTableMessage(msg)
+        elif self.GetNumberRows() > self.currentRows:
+            msg = wx.grid.GridTableMessage(
+                            self,
+                            wx.grid.GRIDTABLE_NOTIFY_ROWS_APPENDED,
+                            self.GetNumberRows()-self.currentRows
+                            )
+            self._grid.ProcessTableMessage(msg)
+        self.UpdateValues()
+        self._grid.EndBatch()
+        self.currentRows = self.GetNumberRows()
+
+        h,w = self._grid.GetSize()
+        self._grid.SetSize((h+1, w))
+        self._grid.SetSize((h, w))
+        self._grid.ForceRefresh()
+        wx.Yield()
+
+    def GetColLabelValue(self, col):
+        return self.columns[ col ]['label']['value']
+
+    def IsEmptyCell(self, row, col):
+        return row >= len(self.data) or self.data[ row ] is None or self.data[ row ][ col ] is None
+
+    def GetValue(self, row, col):
+        cell = None
+        if not self.IsEmptyCell( row, col ):
+            cell = self.data[ row ][ col ]
+        if cell:
+            return cell
+        else:
+            return ''
+
 
 class DupFinderGUI(object):
     def __init__(self):
