@@ -8,12 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="872181a9-49a5-4ffb-a377-308c76224015" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/pyWork.iml" afterPath="$PROJECT_DIR$/.idea/pyWork.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyphoto/dup_find.py" afterPath="$PROJECT_DIR$/pyphoto/dup_find.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pyphoto/dup_find_gui.py" afterPath="$PROJECT_DIR$/pyphoto/dup_find_gui.py" />
     </list>
     <ignored path="pyWork.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,7 +60,7 @@
       <file leaf-file-name="dup_find_gui.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pyphoto/dup_find_gui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="17" selection-start="3144" selection-end="3144" vertical-scroll-proportion="0.8129676">
+            <state line="79" column="17" selection-start="3144" selection-end="3144" vertical-scroll-proportion="0.034246575">
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -104,7 +99,6 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
     <option name="y" value="22" />
     <option name="width" value="1440" />
     <option name="height" value="813" />
@@ -260,11 +254,11 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -521,29 +515,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="22" width="1440" height="813" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1440" height="813" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299712" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3299712" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19971265" sideWeight="0.32853025" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19971265" sideWeight="0.31556195" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2025862" sideWeight="0.45244956" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2025862" sideWeight="0.2074928" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39769453" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39769453" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34582132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819724" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34582132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32708934" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39769453" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -580,7 +574,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="first reworking refactored version of iphoto dup finder" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored with tablebase. works accept for flagging" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -605,6 +599,7 @@
     <MESSAGE value="refactored into packages and separated gui" />
     <MESSAGE value="fixed HashCache len usage" />
     <MESSAGE value="first reworking refactored version of iphoto dup finder" />
+    <MESSAGE value="refactored with tablebase. works accept for flagging" />
   </component>
   <component name="WindowDressing">
     <option name="x" value="36" />
@@ -635,44 +630,67 @@
     </entry>
     <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/helpviewer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="22" selection-start="650" selection-end="650" vertical-scroll-proportion="0.6674473">
-          <folding />
-        </state>
+        <state line="19" column="22" selection-start="650" selection-end="650" vertical-scroll-proportion="0.6674473" />
       </provider>
     </entry>
     <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/Editra/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="678" selection-end="678" vertical-scroll-proportion="0.52693206">
-          <folding />
-        </state>
+        <state line="17" column="13" selection-start="678" selection-end="678" vertical-scroll-proportion="0.52693206" />
       </provider>
     </entry>
     <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/Editra/launcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="9" selection-start="408" selection-end="408" vertical-scroll-proportion="0.31615925">
-          <folding />
-        </state>
+        <state line="9" column="9" selection-start="408" selection-end="408" vertical-scroll-proportion="0.31615925" />
       </provider>
     </entry>
     <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/tools/Editra/INSTALL">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.035128806">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.035128806" />
       </provider>
     </entry>
     <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/grid.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="862" column="27" selection-start="37238" selection-end="37238" vertical-scroll-proportion="-3.2307692">
-          <folding />
-        </state>
+        <state line="862" column="27" selection-start="37238" selection-end="37238" vertical-scroll-proportion="-3.2307692" />
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/_core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12121" column="0" selection-start="457183" selection-end="457183" vertical-scroll-proportion="0.3043478" />
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/aem/ae.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/aem/aemreference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/aem/mactypes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/mactypes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/appscript/reference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-13.84058" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pyphoto/dup_find.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/iPhotoDupFinderGui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="3" column="0" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pytunes/dup_find.py">
@@ -680,58 +698,9 @@
         <state line="39" column="10" selection-start="1149" selection-end="1149" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/wxPython-2.9.3.1/lib/python2.7/site-packages/wx-2.9.3-osx_cocoa/wx/_core.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12121" column="0" selection-start="457183" selection-end="457183" vertical-scroll-proportion="0.3043478">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/aem/ae.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/aem/aemreference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/aem/mactypes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/mactypes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/appscript-1.0.0-py2.7-macosx-10.6-intel.egg!/appscript/reference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-13.84058">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pyphoto/dup_find.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1279" selection-end="1279" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pyphoto/dup_find_gui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="17" selection-start="3144" selection-end="3144" vertical-scroll-proportion="0.8129676">
+        <state line="79" column="17" selection-start="3144" selection-end="3144" vertical-scroll-proportion="0.034246575">
           <folding>
             <element signature="e#1#10#0" expanded="true" />
           </folding>
